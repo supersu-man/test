@@ -1,0 +1,71 @@
+{
+  "name": "test",
+  "version": "0.0.0",
+  "main": "build/main.js",
+  "author": {
+    "name": "Sumanth Perambuduri",
+    "email": "sumanthpera444@gmail.com"
+  },
+  "description": "Bumps Android Project version",
+  "scripts": {
+    "ng": "ng",
+    "start": "ng serve",
+    "electron-start": "npm run electron-build && electron ./build/main.js --dev",
+    "angular-build": "ng build --base-href",
+    "electron-build": "tsc --project tsconfig.electron.json",
+    "electron-package": "npm run angular-build && npm run electron-build && npx electron-builder --publish never",
+    "electron-publish": "npm run angular-build && npm run electron-build && npx electron-builder --publish always",
+    "patch": "npm version patch -m v%s &&  git push && git push --tags",
+    "minor": "npm version minor && git push && git push --tags",
+    "major": "npm version major && git push && git push --tags"
+  },
+  "private": true,
+  "dependencies": {
+    "@angular/animations": "^18.2.0",
+    "@angular/common": "^18.2.0",
+    "@angular/compiler": "^18.2.0",
+    "@angular/core": "^18.2.0",
+    "@angular/forms": "^18.2.0",
+    "@angular/platform-browser": "^18.2.0",
+    "@angular/platform-browser-dynamic": "^18.2.0",
+    "@angular/router": "^18.2.0",
+    "electron-store": "^10.0.0",
+    "electron-updater": "^6.3.4",
+    "primeflex": "^3.3.1",
+    "primeicons": "^7.0.0",
+    "primeng": "^17.18.9",
+    "rxjs": "~7.8.0",
+    "tslib": "^2.3.0",
+    "zone.js": "~0.14.10"
+  },
+  "devDependencies": {
+    "@angular-devkit/build-angular": "^18.2.1",
+    "@angular/cli": "^18.2.1",
+    "@angular/compiler-cli": "^18.2.0",
+    "electron": "^32.0.1",
+    "electron-builder": "^24.13.3",
+    "typescript": "~5.5.2"
+  },
+  "build": {
+    "appId": "dev.sumanth.test",
+    "productName": "Test",
+    "files": [
+      "build/"
+    ],
+    "win": {
+      "target": "nsis"
+    },
+    "linux": {
+      "target": "AppImage"
+    },
+    "publish": [
+      {
+        "provider": "github",
+        "owner": "supersu-man",
+        "repo": "test",
+        "releaseType": "release",
+        "private": false
+      }
+    ]
+  }
+}

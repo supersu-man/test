@@ -1,0 +1,13 @@
+@import "primeicons/primeicons.css";
+
+@font-face {
+	font-family: Rubik;
+	src: url(assets/Rubik.ttf);
+}
+
+html, body {
+    height: 100%;
+    margin: 0px;
+    font-size: 14px;
+	font-family: Rubik;
+}
